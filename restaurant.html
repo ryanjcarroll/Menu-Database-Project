@@ -77,7 +77,47 @@ css/bootstrap.min.css">
 
 
     </form>
+    
+    <div class="container">
+        <form><input type="button" value="Get Menu" onclick="btnClick()"></form>
+        <table class="table" id="posts">
+            <thead>
+                <tr>
+		    <th>Name</th>
+                    <th>Description</th>
+                    <th>Price</th>
+                    
+                </tr>
+            </thead>
+            <tbody>
+	    </tbody>
+        </table>
+    </div>
 
+     <script>
+      // our code goes here!
+        function btnClick() {
+            $.getJSON("172.17.152.72/fp/api/menu/", processData);
+        }
+
+
+        function processData(result) {
+            $.each(result, function(i, item) {
+                $("#posts").append([
+                    $("<tr>")
+                        .append("<td>" + item.name + "</td>")
+                        .append("<td>" + item.description + "</td>")
+                        .append("<td>" + item.price + "</td>")
+                        
+                ]);
+	    })
+
+	 }
+
+	 </script>
 
 
 </body>
+
+
+</html>
