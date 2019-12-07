@@ -1,123 +1,120 @@
 <!DOCTYPE html>
-   <html lang="en">
-   <!--Restaurant page of the project-->
-
-   <head>
-
-     <meta charset="UTF-8">
-     <title>Restaurant</title>
-
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/
-css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js
-"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min
-.js"></script>
-
+<html lang="en">
+  <!--Restaurant page of the project-->
+  
+  <head>
+    
+    <meta charset="UTF-8">
+    <title>Restaurant</title>
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    
     <style>
-
-
+      
+      
       body{background-color: silver;}
     </style>
-
-   </head>
-
-<body>
-
+    
+  </head>
+  
+  <body>
+    
     <!--Nav bar is here to direct users throughout the site.-->
     <nav class="navbar navbar-inverse">
       <div class="container-fluid">
-        <div class="navbar-header">
+	<div class="navbar-header">
           <a class="navbar-brand" href="#">Yummers</a>
-      </div>
-        <ul class="nav navbar-nav">
-          <li class="active"><a href="">Restaurant</a></li>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="driver.html">Drivers</a></li>
-        </ul>
+	</div>
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="">Restaurant</a></li>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="driver.html">Drivers</a></li>
+      </ul>
       </div>
     </nav>
-
- <!--Container for the food image carousel.-->
- <div class="container">
-
-  <div id="myCarousel" class="carousel slide" data-ride="carousel">
-
-    <ol class="carousel-indicators">
-      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-      <li data-target="#myCarousel" data-slide-to="1"></li>
-   </ol>
-
-   <div class="carousel-inner">
-     <div class="item active">
- <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-      <span class="glyphicon glyphicon-chevron-left"></span>
-      <span class="sr-only">Previous</span>
-    </a>
-    <a class="right carousel-control" href="#myCarousel" data-slide="next">
-      <span class="glyphicon glyphicon-chevron-right"></span>
-      <span class="sr-only">Next</span>
-    </a>
-  </div>
-</div>
-
-
-    <p>Order your food here:</p> <br>
-
-
-    <form method="post">
-
-     <p>Meals:</p><br>
-      <select id="mealItem" name="mealItem">
-        <option id="steakwithonions" value="steak1" selected>Steak with Grilled Onions and Peppers</option>
-        <option id="veggieplate" value="veggie1">Steamed Vegatables</option>
-        </select>
-
-        <input type="submit" value="Add to Cart">
-
-
-    </form>
     
+    <!--Container for the food image carousel.--
     <div class="container">
-        <form><input type="button" value="Get Menu" onclick="btnClick()"></form>
-        <table class="table" id="posts">
-            <thead>
-                <tr>
-		    <th>Name</th>
-                    <th>Description</th>
-                    <th>Price</th>
-                    
-                </tr>
-            </thead>
-            <tbody>
-	    </tbody>
-        </table>
-    </div>
 
-     <script>
+      <div id="myCarousel" class="carousel slide" data-ride="carousel">
+	
+	<ol class="carousel-indicators">
+	  <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+	  <li data-target="#myCarousel" data-slide-to="1"></li>
+	</ol>
+	
+	<div class="carousel-inner">
+	  <div class="item active">
+	    <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+	      <span class="glyphicon glyphicon-chevron-left"></span>
+	      <span class="sr-only">Previous</span>
+	    </a>
+	    <a class="right carousel-control" href="#myCarousel" data-slide="next">
+	      <span class="glyphicon glyphicon-chevron-right"></span>
+	      <span class="sr-only">Next</span>
+	    </a>
+	  </div>
+	</div>
+	-->
+	
+      <p>Order your food here:</p> <br>
+      
+      
+      <form method="post">
+	
+	<p>Meals:</p><br>
+	<select id="mealItem" name="mealItem">
+          <option id="steakwithonions" value="steak1" selected>Steak with Grilled Onions and Peppers</option>
+          <option id="veggieplate" value="veggie1">Steamed Vegatables</option>
+        </select>
+	
+        <input type="submit" value="Add to Cart">
+	
+	
+      </form>
+ 
+    <div class="container">
+      <form><input type="button" value="Get Menu" onclick="btnClick()"></form>
+      <table class="table" id="posts">
+        <thead>
+          <tr>
+	      <th>Name</th>
+              <th>Description</th>
+              <th>Price</th>
+              
+          </tr>
+        </thead>
+        <tbody>
+	</tbody>
+      </table>
+      </div>
+    
+    <script>
       // our code goes here!
-        function btnClick() {
-            $.getJSON("172.17.152.72/fp/api/menu/", processData);
-        }
-
-
-        function processData(result) {
-            $.each(result, function(i, item) {
-                $("#posts").append([
-                    $("<tr>")
-                        .append("<td>" + item.name + "</td>")
-                        .append("<td>" + item.description + "</td>")
-                        .append("<td>" + item.price + "</td>")
-                        
-                ]);
-	    })
-
-	 }
-
-	 </script>
-
-
-</body>
-
-
+      function btnClick() {
+      $.getJSON("api/menu/", processData);
+      }
+      
+      
+      function processData(result) {
+      $.each(result, function(i, item) {
+        $("#posts").append([
+      $("<tr>")
+        .append("<td>" + item.name + "</td>")
+        .append("<td>" + item.description + "</td>")
+        .append("<td>" + item.price + "</td>")
+        
+        ]);
+	})
+	
+	}
+	  
+    </script>
+    
+    
+  </body>
+  
+  
 </html>
