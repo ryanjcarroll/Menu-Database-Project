@@ -105,16 +105,21 @@
       
       function processData(result) {
       $.each(result, function(i, item) {
-        $("#posts").append([
+
+      //specify here which type of menuItems to show
+      if(item.type != null){
+
+      $("#posts").append([
       $("<tr>")
         .append("<td>" + item.name + "</td>")
         .append("<td>" + item.description + "</td>")
         .append("<td>" + item.price + "</td>")
         
-        ]);
-	})
-	
+	]);
 	}
+	})
+	}
+	  
 	  
     </script>
     
