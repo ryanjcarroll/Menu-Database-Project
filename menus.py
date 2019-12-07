@@ -13,7 +13,7 @@ def application(env, start_response):
     cnx = mysql.connector.connect(**creds)
     cursor = cnx.cursor(dictionary=True)
     
-    testquery = "SELECT * from menuItem WHERE restaurantId = 2;"
+    testquery = "SELECT * from menuItems;"
 
     cursor.execute(testquery)
     testreturn = cursor.fetchall()
