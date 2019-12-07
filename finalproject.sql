@@ -16,55 +16,30 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `menuItem`
+-- Table structure for table `menuItems`
 --
 
-DROP TABLE IF EXISTS `menuItem`;
+DROP TABLE IF EXISTS `menuItems`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `menuItem` (
+CREATE TABLE `menuItems` (
   `id` int(11) NOT NULL,
   `name` varchar(255) DEFAULT NULL,
   `description` varchar(255) DEFAULT NULL,
   `price` float DEFAULT NULL,
-  `restaurantId` int(11) DEFAULT NULL,
+  `type` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `menuItem`
+-- Dumping data for table `menuItems`
 --
 
-LOCK TABLES `menuItem` WRITE;
-/*!40000 ALTER TABLE `menuItem` DISABLE KEYS */;
-INSERT INTO `menuItem` VALUES (1,'BBQ Chicken','',8,1),(2,'Curry Chicken','',8,1),(3,'Jerk Chicken','',8,1),(4,'Jerk Pork','',8,1),(5,'Grilled Salmon','',12,1),(6,'Thai Fried Rice','stir fried eggs, onions, tomatoes, cabbage, carrots, green onions',12.5,2),(7,'Thai Spicy Noodles','pan fried wide rice noodles with eggs, onions, cabbage, carrots, bell peppers, basil leaves, green bean and chili paste',12.95,2),(8,'Pad Thai','stir fried thin rice noodles with eggs, cabbage, carrots, and green onions served with peanuts and lime',12.95,2),(9,'Salmon Green Curry','sauteed salmon filet with green curry paste and coconut milk, bell peppers, bamboo shoot, green beans and basil leaves',15.95,2),(10,'Suki','stir fried glass noodles with eggs, shrimp, chicken, squid, napa, carrot, onions, bell peppers in garlic soy sauce',14.5,2),(11,'The Grit Veggie Plate','A plate of our fabulous and dynamic variety of vegetable dishes, stews, and casseroles listed daily on the Specials Board.',9.95,3),(12,'Golden Tofu Wrap','Grit style tofu cubes and sautéed veggies bundled up in a flour tortilla and toasted to perfection on our flat-top grill with Sriracha mayo.',7.95,3),(13,'Falafel Sandwich','Chickpea fritters in pita bread with veggies, hummus, and your choice of lemon-tahini dressing or tzatziki dressing.',7.75,3),(14,'Seitan Gyro','Zesty Greek-seasoned seitan, sizzled on the grill with roasted red peppers and onion',7.95,3),(15,'Grit Burger of the Day','Delectible “Grit Original” burger creations, changing from day to day',7.95,3),(16,'El Sandwich Cubano','your choice of steak and chicken, milanesa served with egg lettuce, tomatoes, grilled onions, cheese jalapenos & mayo',5.95,4),(17,'Tito\'s Big Burrito','grilled steak or chicken, served with onions, green & red bell peppers, mushrooms, rice, lettuce, tomatoes and cheese',6.75,4),(18,'El Rico Tamal','steamed white corn meal, filled with pork or chicken, topped with red onions and jalapenos on the sides',5.95,4),(19,'Quesadillas','filled with rice, beans, mozzarella cheese, grilled onions, mushrooms and bell peppers served with lettuce and tomatoes on the side',6.75,4),(20,'Los Fish Tacos','fried tilapia tacos served with lettuce, cheese, red onions, cilantro and chipotle sauce',2.95,4);
-/*!40000 ALTER TABLE `menuItem` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `restaurants`
---
-
-DROP TABLE IF EXISTS `restaurants`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `restaurants` (
-  `id` int(11) NOT NULL,
-  `name` varchar(255) DEFAULT NULL,
-  `description` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `restaurants`
---
-
-LOCK TABLES `restaurants` WRITE;
-/*!40000 ALTER TABLE `restaurants` DISABLE KEYS */;
-INSERT INTO `restaurants` VALUES (1,'Kelly\'s Jamaican','Jamaican'),(2,'Thai Spoon','Thai'),(3,'The Grit','American'),(4,'Cali N Tito\'s','Latin American');
-/*!40000 ALTER TABLE `restaurants` ENABLE KEYS */;
+LOCK TABLES `menuItems` WRITE;
+/*!40000 ALTER TABLE `menuItems` DISABLE KEYS */;
+INSERT INTO `menuItems` VALUES (1,'Burrito','Your choice of Tortilla: Flour, Wheat, Chipotle or Spinach',6.49,'ent'),(2,'Mini Burrito','Your choice of Tortilla: Flour or Wheat',5.49,'ent'),(3,'Bowl','Build your own Burrito Bowl',6.49,'ent'),(4,'Salad','Homemade Dressings Buttermilk Ranch, Southwest Vinaigrette, Chipotle Ranch or Fat Free Balsamic Vinaigrette',6.49,'ent'),(5,'Nachos','Served with Mouth Watering Cheese Dip on the side.',6.49,'ent'),(6,'2 Tacos','Both Tacos must be identical',6.49,'ent'),(7,'Taco','Your choice of Crispy Corn, Soft Flour or Soft Corn Taco Shells',3.69,'ent'),(8,'10in Quesadilla','Served with a Side of Sour Cream and Pico De Gallo',6.49,'ent'),(9,'12in Quesadilla','Served with a Side of Sour Cream and Pico De Gallo',7.49,'ent'),(10,'10in Cheese Quesadilla','Served with a Side of Sour Cream and Pico De Gallo',5.49,'ent'),(11,'12in Cheese Quesadilla','Served with a Side of Sour Cream and Pico De Gallo',5.99,'ent'),(12,'Soda','Coke products',1,'drn'),(13,'Bottled Water','Dasani',1.25,'drn'),(14,'Vegan Burrito','Rice, Beans, Tofu, Pico de Gallo, lettuce and Guacamole on a Tortilla of your choice.',7.49,'spc'),(15,'California Burrito','Comes with Rice, Beans (Pinto or Black), Pico De Gallo, Lettuce, Fresh Sliced Avocado & Southwest Vinaigrette on a Whole Wheat Tortilla.',6.89,'spc'),(16,'Fajita Burrito','Comes with Rice, Beans (Pinto or Black),Protein, Cheese, Pico De Gallo, Lettuce, Sour Cream, Sauteed Peppers and Onions, on a Flour Tortilla.',7.89,'spc'),(17,'Jerk Fish Taco','Grilled Jerk Fish, Cheese, Lettuce, Guacamole, Lime Juice. Served on your choice of Taco Shell. Available on Fridays Only.',4.29,'spc'),(18,'Salsa','Tomatillo or Heavy D.',0.25,'sid'),(19,'Cheese Dip 2 oz','Served with Chips',1.09,'sid'),(20,'Cheese Dip 4 oz','Served with Chips',2.09,'sid'),(21,'Cheese Dip 8 oz','Served with Chips',4.09,'sid'),(22,'Guacamole 4 oz','Served with Chips',2.09,'sid'),(23,'Guacamole 8 oz','Served with Chips',4.59,'sid'),(24,'Pinto Beans','Side of beans',1.49,'sid'),(25,'Rice','Side of rice',1.49,'sid'),(26,'Cookie','Chocolate Chunk',0.69,'des');
+/*!40000 ALTER TABLE `menuItems` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -76,4 +51,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-12-07 14:02:17
+-- Dump completed on 2019-12-07 16:21:37
