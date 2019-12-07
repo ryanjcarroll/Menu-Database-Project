@@ -5,8 +5,6 @@ def application(env, start_response):
     """the main uWSGI application for displaying data from the MySQL database on a webpage"""
     start_response('200 OK',[('Content-Type', 'text/html')])
 
-    html = ""
-
     #access the SQL database with credentials of user 'foo'
     creds = {'user':'foo',
              'database':'finalproject',
@@ -19,8 +17,7 @@ def application(env, start_response):
 
     cursor.execute(testquery)
     testreturn = cursor.fetchall()
-    
-    loaded = json.dumps(testreturn)
 
-    html = loaded
+    html = json.dumps(testreturn)
+    
     return html.encode()
