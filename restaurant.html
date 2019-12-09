@@ -67,10 +67,10 @@
 	<p>Meals:</p><br>
 	<select id="mealItem" name="mealItem">
           <option value="ent" selected>Entrees</option>
-	  <option value="dri">Drinks</option>
 	  <option value="spc">Specialty Items</option> 
 	  <option value="sid">Sides</option>
 	  <option value="des">Dessert</option>
+	  <option value="drn">Drinks</option>
         </select>
 	
         <input type="button" value="Open Menu" onclick="btnClick()">	
@@ -94,13 +94,13 @@
       </div>
     
     <script>
-      // our code goes here!
+      //called when user clicks the Open Menu button
       function btnClick() {
       $.getJSON("api/menu/", processData);
       }
      
       function processData(result) {
-      //variable for which type of menuItems to show, filled from HTML form
+      //string id variable representing the type of menu item
       var type = document.getElementById("mealItem").value
       
       //empty the table of previous data
@@ -109,6 +109,7 @@
       $.each(result, function(i, item) {
 
       //fill the table with the correct elements
+
       if(item.type == type){
       $("#menuTable").append([
       $("<tr>")
