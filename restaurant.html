@@ -66,23 +66,20 @@
 	
 	<p>Meals:</p><br>
 	<select id="mealItem" name="mealItem">
-                  <option id="ent" value="Entrees" selected>Entrees</option>
-		  <option id="dri" value="Drinks">Drinks</option>
-		  <option id="spc" value="Specialty">Specialty Items</option> 
-		  <option id="sid" value="Sides">Sides</option>
-		  <option id="des" value="Dessert">Dessert</option>
-
+          <option value="ent" selected>Entrees</option>
+	  <option value="dri">Drinks</option>
+	  <option value="spc">Specialty Items</option> 
+	  <option value="sid">Sides</option>
+	  <option value="des">Dessert</option>
         </select>
 	
-        <input type="submit" value="Open Menu">
-	
-	
+        <input type="button" value="Open Menu" onclick="btnClick()">	
       </form>
  
+
       <br>
     <div class="container">
-      <form><input type="button" value="Get Menu" onclick="btnClick()"></form>
-      <table class="table" id="posts">
+      <table class="table" id="menuTable">
         <thead>
           <tr>
 	      <th>Name</th>
@@ -101,15 +98,19 @@
       function btnClick() {
       $.getJSON("api/menu/", processData);
       }
-      
-      
+     
       function processData(result) {
+      //variable for which type of menuItems to show, filled from HTML form
+      var type = document.getElementById("mealItem").value
+      
+      //empty the table of previous data
+      $("#menuTable tbody tr").remove();
+      
       $.each(result, function(i, item) {
 
-      //specify here which type of menuItems to show
-      if(item.type != null){
-
-      $("#posts").append([
+      //fill the table with the correct elements
+      if(item.type == type){
+      $("#menuTable").append([
       $("<tr>")
         .append("<td>" + item.name + "</td>")
         .append("<td>" + item.description + "</td>")
