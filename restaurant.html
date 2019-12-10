@@ -12,8 +12,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
     
     <style>
-      
-      
+      p{text-align:center;}
       body{background-color: silver;}
     </style>
     
@@ -35,54 +34,26 @@
       </div>
     </nav>
     
-    <!--Container for the food image carousel.--
-    <div class="container">
 
-      <div id="myCarousel" class="carousel slide" data-ride="carousel">
-	
-	<ol class="carousel-indicators">
-	  <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-	  <li data-target="#myCarousel" data-slide-to="1"></li>
-	</ol>
-	
-	<div class="carousel-inner">
-	  <div class="item active">
-	    <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-	      <span class="glyphicon glyphicon-chevron-left"></span>
-	      <span class="sr-only">Previous</span>
-	    </a>
-	    <a class="right carousel-control" href="#myCarousel" data-slide="next">
-	      <span class="glyphicon glyphicon-chevron-right"></span>
-	      <span class="sr-only">Next</span>
-	    </a>
-	  </div>
-	</div>
-	-->
-	
-      <p>Order your food here:</p> <br>
-      
-      
       <form method="post">
 	
-	<p>Meals:</p><br>
+	<p>
 	<select id="mealItem" name="mealItem">
-                  <option id="ent" value="Entrees" selected>Entrees</option>
-		  <option id="dri" value="Drinks">Drinks</option>
-		  <option id="spc" value="Specialty">Specialty Items</option> 
-		  <option id="sid" value="Sides">Sides</option>
-		  <option id="des" value="Dessert">Dessert</option>
-
+          <option value="ent" selected>Entrees</option>
+	  <option value="spc">Specialty Items</option> 
+	  <option value="sid">Sides</option>
+	  <option value="des">Dessert</option>
+	  <option value="drn">Drinks</option>
         </select>
 	
-        <input type="submit" value="Open Menu">
-	
-	
+        <input type="button" value="Open Menu" onclick="btnClick()">
+	</p>
       </form>
  
+
       <br>
     <div class="container">
-      <form><input type="button" value="Get Menu" onclick="btnClick()"></form>
-      <table class="table" id="posts">
+      <table class="table" id="menuTable">
         <thead>
           <tr>
 	      <th>Name</th>
@@ -97,28 +68,33 @@
       </div>
     
     <script>
-      // our code goes here!
+      //called when user clicks the Open Menu button
       function btnClick() {
       $.getJSON("api/menu/", processData);
       }
-      
-      
+     
       function processData(result) {
+      //string id variable representing the type of menu item
+      var type = document.getElementById("mealItem").value
+      
+      //empty the table of previous data
+      $("#menuTable tbody tr").remove();
+      
       $.each(result, function(i, item) {
 
-      //specify here which type of menuItems to show
-      if(item.type != null){
+      //fill the table with the correct elements
 
-      $("#posts").append([
+      if(item.type == type){
+      $("#menuTable").append([
       $("<tr>")
         .append("<td>" + item.name + "</td>")
         .append("<td>" + item.description + "</td>")
         .append("<td>" + item.price + "</td>")
         
-	]);
-	}
-	})
-	}
+	]); //append
+	}   //if
+	})  //$.each
+	}   //processData
 	  
 	  
     </script>
