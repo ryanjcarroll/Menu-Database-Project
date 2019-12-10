@@ -35,16 +35,16 @@
   </nav>
   <form method="post">
     
-    <!-- Text and Info at top of page-->
+    <!--Text and Info at top of page-->
 
 
 
  <div class = "container">
     <img src="imgs/meetdrivers.jpg" alt="meet our drivers banner" style="width:100%;">
     </div>
-    <p>Learn more about our talented employees who will be driving your food to you!</p>
+    <p>Learn more about the talented employees who will be driving your food to you!</p>
     
-    <!-- Form for selecting a driver by first name-->
+    <!--Form for selecting a driver by first name-->
     <p>
       <select id="driverName">
 	<option value="1">Harold</option>
@@ -58,20 +58,8 @@
     </p>
   </form>
   
-  <!--Formatting test to display an employee's profile--
-  <div id="wrapper" style="text-align:center">
-    <div style="display:inline-block; vertical-align:top">
-      <img src="imgs/iggy.jpg" alt="Iggy in car" style="max-width:400px; float:left; margin-left:auto">
-    </div>
-    <div style="display:inline-block; vertical-align:top; max-width:400px; padding-left:10px">
-      <h3 class="bio">Iggy Azzigy</h3>
-      <p class="bio">Iggy holds the record in our company for fastest deliveries! She will zigzag through traffic to get you your food ASAP!</p>
-      <p class="bio"><b>Number of Accidents:</b> 3</p>
-    </div>
-  </div>
-  -->
 
-  <!--Actual Driver Profile-->
+  <!--Unfilled Driver Profile-->
   <div id="profile" style="text-align:center">
     <div id="picture" style="display:inline-block; vertical-align:top">
     </div>
@@ -84,7 +72,7 @@
   </div>
 
   
-  <!-- Scripts for filling profile data and responding to button clicks -->
+  <!--Scripts for filling profile data and responding to button clicks -->
   <script>
     //called when user clicks the View Driver button
     function driverClick(){
@@ -102,7 +90,7 @@
     
     //update profile picture
     $("#picture").html(
-    "<img src=\"" + driver.picpath + "\" alt=\"Iggy in car\" style=\"max-width:400px; float:left; margin-left:auto\">"
+    "<img src=\"" + driver.picpath + "\" alt=\"" + driver.firstName + " profile picture\" style=\"max-width:400px; float:left; margin-left:auto\">"
 
     ) //end of html inside picture div
 
