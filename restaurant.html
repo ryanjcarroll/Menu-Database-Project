@@ -25,30 +25,31 @@
       <div class="container-fluid">
 	<div class="navbar-header">
           <a class="navbar-brand" href="#">Yummers</a>
-	  </div>
+	    </div>
       <ul class="nav navbar-nav">
         <li><a href="index.html">Home</a></li>
-	<li class="active"><a href="">Restaurant</a></li>
+	<li class="active"><a href="">Menu</a></li>
         <li><a href="driver.html">Drivers</a></li>
+	<li><a href="restaurant.html">Call To Order: 770-YUM-MMERS</a></li>
       </ul>
       </div>
     </nav>
 
-    <div class = "container"> 
-      <img src="imgs/menubanner.jpg" alt="menu banner" style="width:100%;">
+    <div class = "container">
+    <img src="imgs/menubanner.jpg" alt="menu banner" style="width:100%;">
     </div>
-    
+
       <form method="post">
 	
 	<p>
-	  <select id="mealItem" name="mealItem">
+	    <select id="mealItem" name="mealItem">
           <option value="ent" selected>Entrees</option>
-	    <option value="spc">Specialty Items</option> 
-	      <option value="sid">Sides</option>
-	        <option value="des">Dessert</option>
-		  <option value="drn">Drinks</option>
+	      <option value="spc">Specialty Items</option> 
+	            <option value="sid">Sides</option>
+		            <option value="des">Dessert</option>
+			      <option value="drn">Drinks</option>
         </select>
-	  
+	      
         <input type="button" value="Open Menu" onclick="btnClick()">
 	</p>
       </form>
@@ -59,14 +60,14 @@
       <table class="table" id="menuTable">
         <thead>
           <tr>
-	          <th>Name</th>
+	              <th>Name</th>
               <th>Description</th>
               <th>Price</th>
               
           </tr>
         </thead>
         <tbody>
-	  </tbody>
+	    </tbody>
       </table>
       </div>
     
