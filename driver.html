@@ -26,7 +26,7 @@
       </div>
       <ul class="nav navbar-nav">
 	<li><a href="index.html">Home</a></li>
-	   <li><a href="restaurant.html">Restaurant</a></li>  
+	   <li><a href="restaurant.html">Menu</a></li>  
         <li class="active"><a href="driver.html">Drivers</a></li>  
       </ul>
     </div>
@@ -51,11 +51,10 @@
     </p>
   </form>
   
-  <!--Formatting test to display an employee's profile-->
-
+  <!--Formatting test to display an employee's profile--
   <div id="wrapper" style="text-align:center">
     <div style="display:inline-block; vertical-align:top">
-      <img src="https://images.unsplash.com/photo-1468818461933-b1d79f62434e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1051&q=80" alt="Iggy in car" style="max-width:400px; float:left; margin-left:auto">
+      <img src="imgs/iggy.jpg" alt="Iggy in car" style="max-width:400px; float:left; margin-left:auto">
     </div>
     <div style="display:inline-block; vertical-align:top; max-width:400px; padding-left:10px">
       <h3 class="bio">Iggy Azzigy</h3>
@@ -63,24 +62,22 @@
       <p class="bio"><b>Number of Accidents:</b> 3</p>
     </div>
   </div>
+  -->
 
-  <!-- Table to display employee/driver data -->
-  <div class="container">
-    <table class="table" id="driverTable">
-      <thead>
-	<tr>
-          <th>Name</th>
-          <th>Accidents</th>
-          <th>Bio</th>
-	</tr>
-      </thead>
-      <tbody>
-      </tbody>
-    </table>
+  <!--Actual Driver Profile-->
+  <div id="profile" style="text-align:center">
+    <div id="picture" style="display:inline-block; vertical-align:top">
+    </div>
+    <div style="display:inline-block; vertical-align:top; max-width:400px; padding-left:10px">
+      <h3 id="name" class="bio"></h3>
+      <p id="bio-text" class="bio"></p>
+      <p id="accidents-text" class="bio"></p>
+    </div>
+
   </div>
 
-
-  <!-- Scripts for filling table data and responding to button clicks -->
+  
+  <!-- Scripts for filling profile data and responding to button clicks -->
   <script>
     //called when user clicks the View Driver button
     function driverClick(){
@@ -91,22 +88,24 @@
     //id variable representing the id of the selected driver
     var id = document.getElementById("driverName").value
     
-    //empty the table of previous data
-    $("#driverTable tbody tr").remove();
-    
     $.each(result, function(i, driver){
-    
-    //fill the table with the correct elements
+     
+    //build the driver profile
     if(driver.id == id){
-    $("#driverTable").append([
-    $("<tr>")
-      .append("<td>" + driver.firstName + " " + driver.lastName + "</td>")
-      .append("<td>" + driver.accidents + "</td>")
-      .append("<td>" + driver.bio + "</td>")
-      ]); //append
-      }   //if
-      })  //$.each function
-      }   //processData
+    
+    //update profile picture
+    $("#picture").html(
+    "<img src=\"" + driver.picpath + "\" alt=\"Iggy in car\" style=\"max-width:400px; float:left; margin-left:auto\">"
+
+    ) //end of html inside picture div
+
+    //update profile information
+    $("#name").html(driver.firstName + " " + driver.lastName)
+    $("#bio-text").html(driver.bio)
+    $("#accidents-text").html("Number of Accidents: " + driver.accidents)
+    }  //if
+    }) //$.each function
+    }  //processData
   </script>
   
 </body>

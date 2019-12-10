@@ -28,6 +28,7 @@ CREATE TABLE `drivers` (
   `lastName` varchar(255) DEFAULT NULL,
   `accidents` int(11) DEFAULT NULL,
   `bio` varchar(255) DEFAULT NULL,
+  `picpath` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -38,7 +39,7 @@ CREATE TABLE `drivers` (
 
 LOCK TABLES `drivers` WRITE;
 /*!40000 ALTER TABLE `drivers` DISABLE KEYS */;
-INSERT INTO `drivers` VALUES (1,'Harold','Summers',0,'Harold has had a lot of driving experience through years of working as a Dominos delivery guy. He is the safest driver on our team with 0 accidents on his record.'),(2,'Jessica','Gamesh',0,'Jessica has the best all-around delivery track record of all of drivers. She gets you your food faster than any other Tom, Dick, or Harry!'),(3,'Tom','Stewpits',1,'Tom is an honest, hardworking man who moonlights as a bus driver in the daytime. He knows all the best routes to get you your food pronto.'),(4,'Torvis','Girdler',15,'Torvis honestly cant drive. Were working on letting him go.'),(5,'Iggy','Azzigy',3,'Iggy holds the record in our company for fastest deliveries! She will zigzag through traffic to get you your food ASAP!');
+INSERT INTO `drivers` VALUES (1,'Harold','Summers',0,'Harold has had a lot of driving experience through years of working as a Dominos delivery guy. He is the safest driver on our team with 0 accidents on his record.','imgs/harold.jpg'),(2,'Jessica','Gamesh',0,'Jessica has the best all-around delivery track record of all of drivers. She gets you your food faster than any other Tom, Dick, or Harry!','imgs/jessica.jpg'),(3,'Tom','Stewpits',1,'Tom is an honest, hardworking man who moonlights as a bus driver in the daytime. He knows all the best routes to get you your food pronto.','imgs/tom.jpg'),(4,'Torvis','Girdler',15,'Torvis honestly cant drive. Were working on letting him go.','imgs/torvis.jpg'),(5,'Iggy','Azzigy',3,'Iggy holds the record in our company for fastest deliveries! She will zigzag through traffic to get you your food ASAP!','imgs/iggy.jpg');
 /*!40000 ALTER TABLE `drivers` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -78,4 +79,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-12-09 19:43:14
+-- Dump completed on 2019-12-09 22:39:25
