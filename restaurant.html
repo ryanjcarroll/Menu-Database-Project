@@ -14,15 +14,9 @@
     <style>
       p{text-align:center;}
       body{background-color: silver;}
-<<<<<<< HEAD
-     .banner{width: 50%;}
-    </style>
-    
-=======
      .container{text-align: center; position: relative;}
      .centered {position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);}
     </style> 
->>>>>>> 79aa3f392579c317e67c313a50fd084818728fbb
   </head>
   
   <body>
@@ -32,7 +26,7 @@
       <div class="container-fluid">
 	<div class="navbar-header">
           <a class="navbar-brand" href="#">Yummers</a>
-	</div>
+	  </div>
       <ul class="nav navbar-nav">
         <li><a href="index.html">Home</a></li>
 	<li class="active"><a href="">Restaurant</a></li>
@@ -40,28 +34,23 @@
       </ul>
       </div>
     </nav>
-<<<<<<< HEAD
-       
-    <img class= "banner" src="imgs/menu.jpg" alt="menu banner" />
-=======
 
     <div class = "container">
-    <img src="/imgs/menu.jpg" alt="menu banner" style "width:100%;">
+    <img src="imgs/menu.jpg" alt="menu banner" style "width:100%;">
     <div class="centered">View our Menu</div>
     </div>
->>>>>>> 79aa3f392579c317e67c313a50fd084818728fbb
 
       <form method="post">
 	
 	<p>
-	<select id="mealItem" name="mealItem">
+	  <select id="mealItem" name="mealItem">
           <option value="ent" selected>Entrees</option>
-	  <option value="spc">Specialty Items</option> 
-	  <option value="sid">Sides</option>
-	  <option value="des">Dessert</option>
-	  <option value="drn">Drinks</option>
+	    <option value="spc">Specialty Items</option> 
+	      <option value="sid">Sides</option>
+	        <option value="des">Dessert</option>
+		  <option value="drn">Drinks</option>
         </select>
-	
+	  
         <input type="button" value="Open Menu" onclick="btnClick()">
 	</p>
       </form>
@@ -72,14 +61,14 @@
       <table class="table" id="menuTable">
         <thead>
           <tr>
-	      <th>Name</th>
+	          <th>Name</th>
               <th>Description</th>
               <th>Price</th>
               
           </tr>
         </thead>
         <tbody>
-	</tbody>
+	  </tbody>
       </table>
       </div>
     
@@ -97,9 +86,7 @@
       $("#menuTable tbody tr").remove();
       
       $.each(result, function(i, item) {
-
       //fill the table with the correct elements
-
       if(item.type == type){
       $("#menuTable").append([
       $("<tr>")
