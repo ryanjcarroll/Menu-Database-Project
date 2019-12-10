@@ -14,9 +14,9 @@
     <style>
       p{text-align:center;}
       body{background-color: silver;}
-     .banner{width: 100%;}
-    </style>
-    
+     .container{text-align: center; position: relative;}
+     .centered {position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);}
+    </style> 
   </head>
   
   <body>
@@ -34,8 +34,11 @@
       </ul>
       </div>
     </nav>
-       
-    <img class= "banner" src="/imgs/menu.jpg" alt="menu banner" />
+
+    <div class = "container">
+    <img src="/imgs/menu.jpg" alt="menu banner" style "width:100%;">
+    <div class="centered">View our Menu</div>
+    </div>
 
       <form method="post">
 	
