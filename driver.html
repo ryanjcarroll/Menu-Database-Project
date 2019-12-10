@@ -32,17 +32,64 @@
         </ul>
       </div>
     </nav>
-
- <p>Profile: Wal Croix</p><br>
-
-    <p>Description: Wal has been a loyal driver of the Dawgs Food company for 2 years, and he has thus far had not a single complaint lo\
-dged against him.</p><br>
-
-    <p>This will be the driver handling your order today!</p>
-
+ <form method="post">
+ 
+         <p>Drivers:</p><br>
+         <select id="driverName">
+           <option value="1">Harold</option>
+           <option value="2">Jessica</option>
+           <option value="3">Tom</option>
+           <option value="4">Torvis</option>
+           <option value="5">Iggy</option>
+         </select>
+ 
+         <input type="button" value="View Driver" onclick="driverClick()">
+       </form>
+ 
+ 
+       <div class="container">
+       <table class="table" id="driverTable">
+         <thead>
+           <tr>
+               <th>Name</th>
+               <th>Accidents</th>
+               <th>Bio</th>
+           </tr>
+         </thead>
+         <tbody>
+         </tbody>
+       </table>
+	</div>
+ 
+       <script>
+         //called when user clicks the View Driver button
+         function driverClick(){
+         $.getJSON("api/drivers", processData);
+         }
+ 
+         function processData(result) {
+         //id variable representing the id of the selected driver
+         var id = document.getElementById("driverName").value
+ 
+         //empty the table of previous data
+         $("#driverTable tbody tr").remove();
+ 
+         $.each(result, function(i, driver){
+ 
+         //fill the table with the correct elements
+         if(driver.id == id){
+         $("#driverTable").append([
+         $("<tr>")
+           .append("<td>" + driver.firstName + " " + driver.lastName + "</td>")
+           .append("<td>" + driver.accidents + "</td>")
+           .append("<td>" + driver.bio + "</td>")
+         ]); //append
+         }   //if
+         })  //$.each function
+         }   //processData
+	</script>
 
 </body>
-
 
 </html>
 
