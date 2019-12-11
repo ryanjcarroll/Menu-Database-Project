@@ -14,10 +14,18 @@ def application(env, start_response):
     cursor = cnx.cursor(dictionary=True)
     
     testquery = "SELECT * from drivers;"
-
+    
+    if(env["REQUEST_METHOD"] == "GET"):
+        print("get request established")
+        input = env['QUERY_STRING']
+        if input:
+            id = input.split("=")[1]
+            print("id = " + id)
+            testquery = "SELECT * from drivers WHERE id = " + str(id) + ";"
+              
     cursor.execute(testquery)
     testreturn = cursor.fetchall()
-
+              
     html = json.dumps(testreturn)
-    
+              
     return html.encode()

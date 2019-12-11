@@ -13,7 +13,6 @@ def application(env, start_response):
     cnx = mysql.connector.connect(**creds)
     cursor = cnx.cursor(dictionary=True)
 
-
     testquery = "SELECT * from menuItems;"
     
     if(env["REQUEST_METHOD"] == "GET"):
