@@ -37,17 +37,20 @@
 
     <div class = "container">
     <img src="imgs/menubanner.jpg" alt="menu banner" style="width:100%;">
+    <br><p><cite>Banner was made from canva.com</cite></p>
     </div>
+    
+        <!--This form allows the user to select which menu items they want to see.-->
 
       <form method="post">
 	
 	<p>
 	    <select id="mealItem" name="mealItem">
-          <option value="ent" selected>Entrees</option>
+              <option value="ent" selected>Entrees</option>
 	      <option value="spc">Specialty Items</option> 
-	            <option value="sid">Sides</option>
-		            <option value="des">Dessert</option>
-			      <option value="drn">Drinks</option>
+	      <option value="sid">Sides</option>
+	      <option value="des">Dessert</option>
+	      <option value="drn">Drinks</option>
         </select>
 	      
         <input type="button" value="Open Menu" onclick="btnClick()">
@@ -56,11 +59,12 @@
  
 
       <br>
+      <!--Items are posted in this table-->
     <div class="container">
       <table class="table" id="menuTable">
         <thead>
           <tr>
-	              <th>Name</th>
+	      <th>Name</th>
               <th>Description</th>
               <th>Price</th>
               
