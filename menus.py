@@ -12,9 +12,17 @@ def application(env, start_response):
              'auth_plugin':'mysql_native_password'}
     cnx = mysql.connector.connect(**creds)
     cursor = cnx.cursor(dictionary=True)
-    
-    testquery = "SELECT * from menuItems;"
 
+
+    testquery = "SELECT * from menuItems;"
+    
+    if(env["REQUEST_METHOD"] == "GET"):
+        input = env['QUERY_STRING']
+        if input:
+            id = input.split("=")[1]
+            print("id = " + id)
+            testquery = "SELECT * from menuItems WHERE id = " + str(id) + ";"
+            
     cursor.execute(testquery)
     testreturn = cursor.fetchall()
 
